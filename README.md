@@ -25,6 +25,7 @@ Each prompt contains a list of outside resources you are allowed to use to suppo
 After you complete each prompt, assign a grade to each item in the Grading Outline, using the Grading Scale. Note your grade by editing **this file** (`README.md`), and writing your grade next to the corresponding item in the Grading Outline. Please use the exact terms shown in the Grading Scale; do not modify or improve them.
 
 ### Grading Outline
+Complete             
 
 - [ ] filter-family-members
 
