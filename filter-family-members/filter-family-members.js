@@ -57,17 +57,34 @@ var filterFamilyMembers = function (familyTree, truthTest) {
 
   var arr = [];
  
-  	 for (var key in familyTree){
+  	
+if(familyTree["children"].length === 0){
+	arr.push(familyTree["children"].firstName + ' '+ familyTree["children"].lastName);
+
+}
+  	else {
+
+  		 for (var key in familyTree){
   	 	if(key === "children"){
   	 		if(familyTree[key].length>0){
+
   	 			for (var i =0;i<familyTree[key].length;i++){
   	 					if(truthTest(familyTree[key][i])){
   	 				   arr.push(familyTree[key][i].firstName + ' '+ familyTree[key][i].lastName);
   	 				}
+  	 				else {
+  	 					filterFamilyMembers(familyTree[key][i]);
+
+  	 				}
   	 			}
   	 		}
   	 	}
+
   	 }
-  	 return arr;
+
+  	}
+  return arr;
+
+
 };
 
