@@ -53,38 +53,20 @@
 
 
 var filterFamilyMembers = function (familyTree, truthTest) {
-  // All your code in this function body
-
   var arr = [];
- 
-  	
-if(familyTree["children"].length === 0){
-	arr.push(familyTree["children"].firstName + ' '+ familyTree["children"].lastName);
-
-}
-  	else {
-
-  		 for (var key in familyTree){
-  	 	if(key === "children"){
-  	 		if(familyTree[key].length>0){
-
-  	 			for (var i =0;i<familyTree[key].length;i++){
-  	 					if(truthTest(familyTree[key][i])){
-  	 				   arr.push(familyTree[key][i].firstName + ' '+ familyTree[key][i].lastName);
-  	 				}
-  	 				else {
-  	 					filterFamilyMembers(familyTree[key][i]);
-
-  	 				}
-  	 			}
-  	 		}
-  	 	}
-
-  	 }
-
-  	}
+  if(truthTest(familyTree.location)) {
+    arr.push(familyTree.firstName + ' ' + familyTree.lastName);
+  }
+  
+  var children = familyTree.children;
+  if(children) {
+    for (var i = 0; i < children.length; i++) {
+     arr.concat(filterFamilyMembers(children[i]), truthTest);
+    }
+  }
   return arr;
-
-
 };
+
+
+
 
